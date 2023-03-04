@@ -54,13 +54,42 @@ public class WiseSayingController {
         System.out.printf(id + "번 명언이 삭제되었습니다.\n");
     }
 
+    public void modify(Rq rq) throws IOException {
+        long id = rq.getIntParam("id", -1);
+
+        if (id == -1) {
+            System.out.println("id(정수)를 입력해주세요.");
+            return;
+        }
+
+        // 입력된 id와 일치하는 명언객체 찾기
+        WiseSaying wiseSaying = findById(id);
+
+        if (wiseSaying == null) {
+            System.out.printf(id + "번 명언은 존재하지 않습니다.\n");
+            return;
+        }
+
+        System.out.println("명언(기존) : " + wiseSaying.getContent());
+        System.out.print("명언 : ");
+        String content = br.readLine().trim();
+
+        System.out.println("작가(기존) : " + wiseSaying.getAuthor());
+        System.out.print("작가 : ");
+        String authorName = br.readLine().trim();
+
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(authorName);
+
+        System.out.printf("%d번 명언이 수정되었습니다.\n", id);
+    }
+
     private WiseSaying findById(long id) {
         for (WiseSaying wiseSaying : list) {
             if (wiseSaying.getId() == id) {
                 return wiseSaying;
             }
         }
-
         return null;
     }
 }

@@ -18,6 +18,7 @@ public class App {
         while (true) {
             System.out.print("명령) ");
             String command = br.readLine().trim(); // trim() : 좌우공백 제거
+            Rq rq = new Rq(command);
 
             if (command.equals("종료")) {
                 systemController.exit();
@@ -26,8 +27,10 @@ public class App {
                 wiseSayingController.write();
             } else if (command.equals("목록")) {
                 wiseSayingController.show();
-            }else if (command.startsWith("삭제")) {
-                wiseSayingController.remove(new Rq(command));
+            } else if (command.startsWith("삭제")) {
+                wiseSayingController.remove(rq);
+            } else if (command.startsWith("수정")) {
+                wiseSayingController.modify(rq);
             }
         }
     }
