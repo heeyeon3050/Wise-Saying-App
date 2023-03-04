@@ -9,6 +9,7 @@ public class App {
 
     public void run() throws IOException {
         System.out.println("== 명언 앱 ==");
+        long id = 1;
 
         while (true) {
             System.out.print("명령) ");
@@ -22,7 +23,7 @@ public class App {
                 System.out.print("작가 : ");
                 String authorName = br.readLine().trim();
 
-                System.out.println("1번 명언이 등록되었습니다.");
+                System.out.println(id++ + "번 명언이 등록되었습니다.");
             }
         }
     }
