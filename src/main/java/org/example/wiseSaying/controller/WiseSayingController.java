@@ -1,5 +1,6 @@
 package org.example.wiseSaying.controller;
 
+import org.example.Rq;
 import org.example.wiseSaying.entity.WiseSaying;
 
 import java.io.BufferedReader;
@@ -32,6 +33,29 @@ public class WiseSayingController {
         for (int i = list.size() - 1; i >= 0; i--) {
             System.out.println(list.get(i));
         }
+    }
 
+    public void remove(Rq rq) {
+        long id = rq.getIntParam("id", -1);
+
+        if (id == -1) {
+            System.out.println("id(정수)를 입력해주세요.");
+            return;
+        }
+
+        WiseSaying wiseSaying = findById(id);
+        list.remove(wiseSaying);
+
+        System.out.printf(id + "번 명언이 삭제되었습니다.\n");
+    }
+
+    private WiseSaying findById(long id) {
+        for (WiseSaying wiseSaying : list) {
+            if (wiseSaying.getId() == id) {
+                return wiseSaying;
+            }
+        }
+
+        return null;
     }
 }

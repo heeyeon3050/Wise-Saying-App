@@ -26,6 +26,8 @@ public class App {
                 wiseSayingController.write();
             } else if (command.equals("목록")) {
                 wiseSayingController.show();
+            }else if (command.startsWith("삭제")) {
+                wiseSayingController.remove(new Rq(command));
             }
         }
     }
