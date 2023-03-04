@@ -46,6 +46,11 @@ public class WiseSayingController {
         WiseSaying wiseSaying = findById(id);
         list.remove(wiseSaying);
 
+        if (wiseSaying == null) {
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+            return;
+        }
+
         System.out.printf(id + "번 명언이 삭제되었습니다.\n");
     }
 
