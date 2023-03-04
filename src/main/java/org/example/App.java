@@ -31,6 +31,8 @@ public class App {
                 wiseSayingController.remove(rq);
             } else if (command.startsWith("수정")) {
                 wiseSayingController.modify(rq);
+            } else if (command.equals("빌드")) {
+                wiseSayingController.build();
             }
         }
     }

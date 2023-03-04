@@ -45,7 +45,8 @@ public class WiseSaying {
                 }
                 """
                 .stripIndent()
-                .formatted(id, content, author);
+                .formatted(id, content, author)
+                .trim();
     }
 }
 

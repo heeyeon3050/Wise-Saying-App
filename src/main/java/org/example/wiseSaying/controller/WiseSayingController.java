@@ -77,4 +77,10 @@ public class WiseSayingController {
         wiseSayingService.modify(wiseSaying, content, author);
         System.out.printf("%d번 명언이 수정되었습니다.\n", id);
     }
+
+    public void build() {
+        wiseSayingService.build();
+
+        System.out.println("data.json 파일의 내용이 갱신되었습니다.");
+    }
 }
